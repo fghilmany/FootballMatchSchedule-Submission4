@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="iv_club_home" type="id"/>
+    <item name="tv_club_home_name" type="id"/>
+    <item name="tv_score_home" type="id"/>
+    <item name="tv_score_away" type="id"/>
+    <item name="tv_club_away_name" type="id"/>
+    <item name="iv_club_away" type="id"/>
+    <item name="tv_match_date" type="id"/>
+    <item name="viewpager_main" type="id"/>
+    <item name="tabs_main" type="id"/>
+    <item name="spinner" type="id"/>
+    <item name="iv_league" type="id"/>
+    <item name="tv_league_name" type="id"/>
+    <item name="rv_match_league" type="id"/>
+    <item name="progressbar" type="id"/>
+    <item name="swiperefresh" type="id"/>
+    <item name="tv_home_formation" type="id"/>
+    <item name="tv_away_formation" type="id"/>
+    <item name="tv_home_Goal" type="id"/>
+    <item name="tv_away_goal" type="id"/>
+</resources>
