@@ -23,14 +23,8 @@ data class Match (
     @SerializedName("dateEvent")
     var dateEvent: String? = null,
 
-    @SerializedName("strBadge")
-    var leagueBadge: String? = null,
-
     @SerializedName("strLeague")
     var nameLeague: String? = null,
-
-    @SerializedName("strDescriptionEN")
-    var descLeague: String? = null,
 
     @SerializedName("strHomeFormation")
     var homeFormation: String? = null,
@@ -48,7 +42,10 @@ data class Match (
     var thumbLeague : String? = null,
 
     @SerializedName("strTeamBadge")
-    var teamBadge : String? = null
+    var teamBadge : String? = null,
+
+    @SerializedName("strEvent")
+    var eventVS : String? = null
 
 
 

@@ -10,7 +10,9 @@ class PagerAdapter(fm : FragmentManager): FragmentPagerAdapter(fm){
 
     private val pages = listOf(
         PrevMatchFrag(),
-        NextMatchFrag()
+        NextMatchFrag(),
+        FavoriteFragment()
+
     )
 
     override fun getItem(position: Int): Fragment {
@@ -24,8 +26,9 @@ class PagerAdapter(fm : FragmentManager): FragmentPagerAdapter(fm){
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
-            0 -> "Prev Match"
-            else -> "Next Match"
+            0 -> "Past Match"
+            1 -> "Next Match"
+            else -> "Favorite"
         }
     }
 

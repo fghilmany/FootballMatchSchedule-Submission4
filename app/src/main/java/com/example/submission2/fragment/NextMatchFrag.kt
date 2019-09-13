@@ -74,7 +74,7 @@ class NextMatchFrag : Fragment(), MainView {
 
         rvMatch.layoutManager = LinearLayoutManager(activity)
         adapter = MainAdapter(matches){
-            val toast = Toast.makeText(activity,it.eventId, Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(activity,it.eventVS, Toast.LENGTH_SHORT)
             toast.show()
         }
         rvMatch.adapter = adapter
@@ -122,9 +122,6 @@ class NextMatchFrag : Fragment(), MainView {
 
         val tvLeague = find<TextView>(R.id.tv_league_name)
         tvLeague.text = data[0].nameLeague
-
-
-
 
 
     }

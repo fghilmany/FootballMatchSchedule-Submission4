@@ -63,6 +63,7 @@ class ItemListUI :AnkoComponent<ViewGroup>{
                     textSize = 25f
                     typeface = Typeface.DEFAULT_BOLD
                     hint = " "
+
                 }.lparams{
                     width = wrapContent
                     height = wrapContent
@@ -72,6 +73,7 @@ class ItemListUI :AnkoComponent<ViewGroup>{
                 textView {
                     id = R.id.tv_club_away_name
                     hint = "Club away name"
+                    gravity = Gravity.RIGHT
                 }.lparams{
                     width = wrapContent
                     height= wrapContent

@@ -37,6 +37,12 @@ class TeamViewHolder(view: View):RecyclerView.ViewHolder(view) {
         scoreAway.text = matches.awayScore.toString()
         matchDate.text = matches.dateEvent.toString()
 
+        if (matches.homeScore == null || matches.awayScore == null){
+            scoreHome.text = null
+            scoreAway.text = null
+
+        }
+
         itemView.setOnClickListener {
             listener(matches)
         }

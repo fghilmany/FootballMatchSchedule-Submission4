@@ -33,7 +33,6 @@ import org.jetbrains.anko.support.v4.startActivity
 
 class PrevMatchFrag : Fragment(), MainView {
 
-
     private var matches : MutableList<Match> = mutableListOf()
     private lateinit var presenter: MainPresenter
     private lateinit var adapter: MainAdapter
@@ -42,7 +41,6 @@ class PrevMatchFrag : Fragment(), MainView {
     private lateinit var spinner: Spinner
     private lateinit var leagueName: String
     private lateinit var item : Match
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?)
     : View? {

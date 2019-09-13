@@ -39,6 +39,9 @@ class MainActivity : AppCompatActivity(), MainView {
         var request = ApiRepository()
         val gson = Gson()
         presenter =MainPresenter(this, request, gson)
+
+        supportActionBar?.title = "Football Schedule"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
