@@ -50,18 +50,25 @@ class PrevMatchFrag : Fragment(), MainView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val league = resources.getStringArray(R.array.league)
+        val request = ApiRepository()
+        val gson = Gson()
+
+
         val idLeague = resources.getStringArray(R.array.league_id)
+        val strLeague = resources.getStringArray(R.array.league)
+
 
         val position = arrayOfNulls<String>( idLeague.size)
         val spinnerMap = SparseArray<String>()
         for (i in 0 until  idLeague.size){
             spinnerMap.put(i, idLeague[i].toString())
-            position[i] = league[i]
+            position[i] = strLeague[i]
         }
 
-        val spinnerItems = idLeague
-        val spinnerAdapter = ArrayAdapter(context!!, android.R.layout.simple_spinner_dropdown_item, spinnerItems) as SpinnerAdapter
+        spinner = find(R.id.spinner)
+
+        //val spinnerItems = spinnerMap.get(spinner.selectedItemPosition).toString()
+        val spinnerAdapter = ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, strLeague) as SpinnerAdapter
         spinner = find<Spinner>(R.id.spinner)
         spinner.adapter = spinnerAdapter
 
@@ -79,18 +86,17 @@ class PrevMatchFrag : Fragment(), MainView {
                 "awayTeam" to it.awayTeam
 
             )
-            val toast = Toast.makeText(activity,it.eventId, Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(activity,it.eventVS, Toast.LENGTH_SHORT)
             toast.show()
         }
         rvMatch.adapter = adapter
 
-        val request = ApiRepository()
-        val gson = Gson()
+
         presenter = MainPresenter(this,request, gson)
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                leagueName = spinner.selectedItem.toString()
+                leagueName = spinnerMap.get(spinner.selectedItemPosition).toString()
                 presenter.getPrevMatch(leagueName)
                 presenter.getDetailLeague(leagueName)
 

@@ -45,7 +45,25 @@ data class Match (
     var teamBadge : String? = null,
 
     @SerializedName("strEvent")
-    var eventVS : String? = null
+    var eventVS : String? = null,
+
+    @SerializedName("idLeague")
+    var idLeague: String? = null,
+
+    @SerializedName("strSport")
+    var strSport: String? = null,
+
+    @SerializedName("strHomeYellowCards")
+    var homeYCard: String? = null,
+
+    @SerializedName("strAwayYellowCards")
+    var awayYCard: String? = null,
+
+    @SerializedName("strHomeRedCards")
+    var homeRCard: String? = null,
+
+    @SerializedName("strAwayRedCards")
+    var awayRCard: String? = null
 
 
 

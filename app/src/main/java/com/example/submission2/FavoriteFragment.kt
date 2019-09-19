@@ -49,7 +49,7 @@ class FavoriteFragment : Fragment() {
                 "idEvent" to it.matchId,
                 "homeTeam" to it.teamHomeName,
                 "awayTeam" to it.teamAwayName)
-            val toast = Toast.makeText(activity,it.teamHomeScore, Toast.LENGTH_SHORT)
+            val toast = Toast.makeText(activity,it.teamHomeName + " vs " + it.teamAwayName, Toast.LENGTH_SHORT)
             toast.show()
         }
 

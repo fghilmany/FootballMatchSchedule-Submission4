@@ -133,7 +133,10 @@ class DetailActivityUI : AnkoComponent<DetailMatchAct>{
 
                         linearLayout {
                             gravity = Gravity.CENTER_HORIZONTAL
-                            lparams(width = matchParent, height = wrapContent)
+                            lparams{width = matchParent
+                                height = wrapContent
+                                margin = dip(10)
+                            }
 
                             textView {
                                 id = R.id.tv_home_formation
@@ -162,21 +165,28 @@ class DetailActivityUI : AnkoComponent<DetailMatchAct>{
 
                         linearLayout {
                             gravity = Gravity.CENTER_HORIZONTAL
-                            lparams(width = matchParent, height = wrapContent)
+                            lparams{width = matchParent
+                                height = wrapContent
+                                margin = dip(10)
+                                padding = dip(6)
+                            }
 
                             textView {
                                 id = R.id.tv_home_Goal
                             }.lparams {
                                 width = wrapContent
                                 height = wrapContent
+                                gravity = Gravity.LEFT
                                 margin = dip(16)
                             }
 
                             textView {
                                 text = "Goal"
+                                
                             }.lparams {
                                 width = wrapContent
                                 height = wrapContent
+                                gravity = Gravity.CENTER_HORIZONTAL
                                 margin = dip(16)
                             }
 
@@ -186,6 +196,85 @@ class DetailActivityUI : AnkoComponent<DetailMatchAct>{
                             }.lparams {
                                 width = wrapContent
                                 height = wrapContent
+                                gravity = Gravity.RIGHT
+                                margin = dip(16)
+
+                            }
+                        }
+
+                        linearLayout {
+                            gravity = Gravity.CENTER_HORIZONTAL
+                            lparams{width = matchParent
+                                height = wrapContent
+                                margin = dip(10)
+                                padding = dip(6)
+                            }
+
+                            textView {
+                                id = R.id.tv_home_ycard
+                            }.lparams {
+                                width = wrapContent
+                                height = wrapContent
+                                gravity = Gravity.LEFT
+                                margin = dip(16)
+                            }
+
+                            textView {
+                                text = "Yellow Card"
+
+                            }.lparams {
+                                width = wrapContent
+                                height = wrapContent
+                                gravity = Gravity.CENTER_HORIZONTAL
+                                margin = dip(16)
+                            }
+
+                            textView {
+                                id = R.id.tv_away_ycard
+
+                            }.lparams {
+                                width = wrapContent
+                                height = wrapContent
+                                gravity = Gravity.RIGHT
+                                margin = dip(16)
+
+                            }
+                        }
+
+                        linearLayout {
+                            gravity = Gravity.CENTER_HORIZONTAL
+                            lparams{width = matchParent
+                                height = wrapContent
+                                margin = dip(10)
+                                padding = dip(6)
+                            }
+
+                            textView {
+                                id = R.id.tv_home_rcard
+                            }.lparams {
+                                width = wrapContent
+                                height = wrapContent
+                                gravity = Gravity.LEFT
+                                margin = dip(16)
+                            }
+
+                            textView {
+                                text = "Red Card"
+
+                            }.lparams {
+                                width = wrapContent
+                                height = wrapContent
+                                gravity = Gravity.CENTER_HORIZONTAL
+                                margin = dip(16)
+                            }
+
+                            textView {
+                                id = R.id.tv_away_rcard
+
+                            }.lparams {
+                                width = wrapContent
+                                height = wrapContent
+                                gravity = Gravity.RIGHT
                                 margin = dip(16)
 
                             }

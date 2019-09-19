@@ -19,4 +19,8 @@
     <item name="tv_away_formation" type="id"/>
     <item name="tv_home_Goal" type="id"/>
     <item name="tv_away_goal" type="id"/>
+    <item name="tv_home_ycard" type="id"/>
+    <item name="tv_away_ycard" type="id"/>
+    <item name="tv_home_rcard" type="id"/>
+    <item name="tv_away_rcard" type="id"/>
 </resources>

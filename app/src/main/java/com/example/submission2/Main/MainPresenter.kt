@@ -71,6 +71,20 @@ class MainPresenter (
 
     }
 
+    fun getLeague(){
+        view.showLoading()
+        doAsync {
+            val data = gson.fromJson(apiRepository
+                .doRequest(TheSportDBApi.getLeague()),
+                MatchResponse::class.java)
+
+            uiThread {
+                view.hideLoading()
+                view.showMatchList(data.leagues)
+            }
+        }
+    }
+
 
 
 }

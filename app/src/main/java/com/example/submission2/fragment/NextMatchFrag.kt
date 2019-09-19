@@ -62,7 +62,7 @@ class NextMatchFrag : Fragment(), MainView {
         }
 
         val spinnerItems = idLeague
-        val spinnerAdapter = ArrayAdapter(context!!, android.R.layout.simple_spinner_dropdown_item, spinnerItems) as SpinnerAdapter
+        val spinnerAdapter = ArrayAdapter(context!!, android.R.layout.simple_spinner_dropdown_item, league) as SpinnerAdapter
         spinner = find<Spinner>(R.id.spinner)
         spinner.adapter = spinnerAdapter
 
@@ -85,7 +85,7 @@ class NextMatchFrag : Fragment(), MainView {
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                leagueName = spinner.selectedItem.toString()
+                leagueName = spinnerMap.get(spinner.selectedItemPosition).toString()
                 presenter.getNextMatch(leagueName)
                 presenter.getDetailLeague(leagueName)
 

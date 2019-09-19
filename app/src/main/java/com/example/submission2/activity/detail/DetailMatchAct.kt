@@ -160,7 +160,8 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
             data[0].homeFormation,
             data[0].homeGoal,
             data[0].awayFormation,
-            data[0].awayGoal
+            data[0].awayGoal,
+            data[0].teamBadge
 
         )
         //swipeRefresh.isRefreshing = false
@@ -174,7 +175,7 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
         clubHome.text = data[0].homeTeam
 
         val goalHome = findViewById<TextView>(R.id.tv_home_Goal)
-        goalHome.text = """${data[0].homeGoal}"""
+        goalHome.text = "${data[0].homeGoal}".replace("\\n","\n")
 
         val scoreAway = findViewById<TextView>(R.id.tv_score_away)
         scoreAway.text = data[0].awayScore.toString()
@@ -191,10 +192,22 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
         val goalAway = findViewById<TextView>(R.id.tv_away_goal)
         goalAway.text = """${data[0].awayGoal}""".trimMargin()
 
+        val homeYCard = findViewById<TextView>(R.id.tv_home_ycard)
+        homeYCard.text = data[0].homeYCard.toString()
+
+        val awayYCard = findViewById<TextView>(R.id.tv_away_ycard)
+        awayYCard.text = data[0].awayYCard.toString()
+
+        val homeRCard = findViewById<TextView>(R.id.tv_home_rcard)
+        homeRCard.text = data[0].homeRCard.toString()
+
+        val awayRCard = findViewById<TextView>(R.id.tv_home_rcard)
+        awayRCard.text = data[0].awayRCard.toString()
+
+
     }
 
     override fun showHomeBadge(data: List<Match>) {
-        item = Match( data[0].teamBadge )
 
         val homeTeam = findViewById<ImageView>(R.id.iv_club_home)
         Picasso.get().load(data[0].teamBadge).into(homeTeam)
@@ -202,7 +215,6 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
     }
 
     override fun showAwayBadge(data: List<Match>) {
-        item = Match( data[0].teamBadge )
 
         val awayTeam = findViewById<ImageView>(R.id.iv_club_away)
         Picasso.get().load(data[0].teamBadge).into(awayTeam)
