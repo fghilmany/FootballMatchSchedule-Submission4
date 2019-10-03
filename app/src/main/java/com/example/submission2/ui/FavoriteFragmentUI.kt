@@ -1,14 +1,12 @@
 package com.example.submission2.ui
 
-import android.graphics.Typeface
 import android.support.v4.widget.SwipeRefreshLayout
 import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Spinner
-import com.example.submission2.FavoriteFragment
+import com.example.submission2.fragment.favorite.FavoriteFragment
 import com.example.submission2.R
-import com.example.submission2.fragment.PrevMatchFrag
 import org.jetbrains.anko.*
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.swipeRefreshLayout

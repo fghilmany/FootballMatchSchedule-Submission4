@@ -1,4 +1,4 @@
-package com.example.submission2
+package com.example.submission2.fragment.favorite
 
 
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.submission2.R
 import com.example.submission2.activity.detail.DetailMatchAct
 import com.example.submission2.helper.database
 import com.example.submission2.ui.FavoriteFragmentUI
@@ -19,7 +20,6 @@ import org.jetbrains.anko.db.select
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.find
 import org.jetbrains.anko.support.v4.onRefresh
-import java.nio.file.Files.delete
 
 
 class FavoriteFragment : Fragment() {
@@ -44,12 +44,13 @@ class FavoriteFragment : Fragment() {
 
         val rvMatch = find<RecyclerView>(R.id.rv_match_league)
         rvMatch.layoutManager = LinearLayoutManager(activity)
-        adapter = FavoriteAdapter(favorites){
+        adapter = FavoriteAdapter(favorites) {
             context?.startActivity<DetailMatchAct>(
                 "idEvent" to it.matchId,
                 "homeTeam" to it.teamHomeName,
-                "awayTeam" to it.teamAwayName)
-            val toast = Toast.makeText(activity,it.teamHomeName + " vs " + it.teamAwayName, Toast.LENGTH_SHORT)
+                "awayTeam" to it.teamAwayName
+            )
+            val toast = Toast.makeText(activity, it.teamHomeName + " vs " + it.teamAwayName, Toast.LENGTH_SHORT)
             toast.show()
         }
 

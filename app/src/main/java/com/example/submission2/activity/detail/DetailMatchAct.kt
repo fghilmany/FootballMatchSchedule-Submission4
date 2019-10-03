@@ -5,17 +5,20 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.SwipeRefreshLayout
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import com.example.submission2.Favorite
+import com.example.submission2.fragment.favorite.Favorite
 import com.example.submission2.R
 import com.example.submission2.api.ApiRepository
 import com.example.submission2.helper.database
 import com.example.submission2.model.Match
 import com.example.submission2.ui.DetailActivityUI
+import com.example.submission2.utils.invisible
+import com.example.submission2.utils.visible
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.db.classParser
@@ -23,10 +26,8 @@ import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.design.snackbar
-import org.jetbrains.anko.find
 import org.jetbrains.anko.setContentView
-import org.jetbrains.anko.support.v4.swipeRefreshLayout
-import java.nio.file.Files
+import org.jetbrains.anko.support.v4.onRefresh
 
 class DetailMatchAct : AppCompatActivity(), DetailView {
 
@@ -63,8 +64,16 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
         presenter.getHomeTeamBadge(homeTeam)
         presenter.getAwayTeamBadge(homeScore)
 
+
+
         supportActionBar?.title = "Team Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        swipeRefresh.onRefresh {
+            presenter.getDetailEvent(idEvent)
+            presenter.getHomeTeamBadge(homeTeam)
+            presenter.getAwayTeamBadge(homeScore)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -94,7 +103,8 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
     private fun addToFavorite(){
         try {
             database.use {
-                insert(Favorite.TABLE_FAVORITE,
+                insert(
+                    Favorite.TABLE_FAVORITE,
                     Favorite.MATCH_ID to item.eventId,
                     Favorite.TEAM_HOME_NAME to item.homeTeam,
                     Favorite.TEAM_HOME_SCORE to item.homeScore,
@@ -111,7 +121,8 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
     private fun removeFromFavorite(){
         try{
             database.use{
-                delete(Favorite.TABLE_FAVORITE, "(MATCH_ID ={idEvent})",
+                delete(
+                    Favorite.TABLE_FAVORITE, "(MATCH_ID ={idEvent})",
                     "idEvent" to idEvent)
             }
             swipeRefresh.snackbar("Removed to favorite").show()
@@ -140,11 +151,11 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
     }
 
     override fun showLoading() {
-       // progressBar.visible()
+        //progressBar.visible()
     }
 
     override fun hideLoading() {
-        //progressBar.invisible()
+       // progressBar.invisible()
     }
 
     override fun showMatchList(data: List<Match>) {
@@ -164,6 +175,8 @@ class DetailMatchAct : AppCompatActivity(), DetailView {
             data[0].teamBadge
 
         )
+
+        //Log.e("Response","${presenter.getDetailEvent(idEvent)}")
         //swipeRefresh.isRefreshing = false
         val scoreHome = findViewById<TextView>(R.id.tv_score_home)
         scoreHome.text = data[0].homeScore.toString()

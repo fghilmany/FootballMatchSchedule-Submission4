@@ -2,8 +2,7 @@ package com.example.submission2.helper
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import android.support.annotation.IntegerRes
-import com.example.submission2.Favorite
+import com.example.submission2.fragment.favorite.Favorite
 import org.jetbrains.anko.db.*
 
 class MyDatabaseOpenHelper(ctx : Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteTeam.db", null, 1) {
@@ -21,7 +20,8 @@ class MyDatabaseOpenHelper(ctx : Context) : ManagedSQLiteOpenHelper(ctx, "Favori
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.createTable(Favorite.TABLE_FAVORITE, true,
+        db.createTable(
+            Favorite.TABLE_FAVORITE, true,
             Favorite.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
             Favorite.MATCH_ID  to TEXT + UNIQUE,
             Favorite.TEAM_HOME_NAME to TEXT,

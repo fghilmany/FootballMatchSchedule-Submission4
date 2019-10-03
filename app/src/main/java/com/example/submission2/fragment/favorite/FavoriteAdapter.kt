@@ -1,18 +1,24 @@
-package com.example.submission2
+package com.example.submission2.fragment.favorite
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.submission2.Main.TeamViewHolder
-import com.example.submission2.model.Match
+import com.example.submission2.R
 import com.example.submission2.ui.ItemListUI
 import org.jetbrains.anko.AnkoContext
 
 class FavoriteAdapter (private val favorite: List<Favorite>, private val listener:(Favorite)->Unit)
     :RecyclerView.Adapter<FavoriteViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): FavoriteViewHolder {
-        return FavoriteViewHolder(ItemListUI().createView(AnkoContext.create(parent.context, parent)))
+        return FavoriteViewHolder(
+            ItemListUI().createView(
+                AnkoContext.create(
+                    parent.context,
+                    parent
+                )
+            )
+        )
     }
 
     override fun getItemCount(): Int = favorite.size

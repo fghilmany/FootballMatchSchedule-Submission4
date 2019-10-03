@@ -1,4 +1,4 @@
-package com.example.submission2
+package com.example.submission2.fragment.favorite
 
 data class Favorite(
     val id: Long?,

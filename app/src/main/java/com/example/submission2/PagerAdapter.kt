@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import com.example.submission2.fragment.NextMatchFrag
 import com.example.submission2.fragment.PrevMatchFrag
+import com.example.submission2.fragment.favorite.FavoriteFragment
 
 class PagerAdapter(fm : FragmentManager): FragmentPagerAdapter(fm){
 
